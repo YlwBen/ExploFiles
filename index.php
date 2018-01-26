@@ -20,46 +20,52 @@
     </nav>
 
  <footer>
-   <!-- Affiche la taille du dossier -->
-   <?php
-    
-    function calc_size($dir)
-    {
-     $size = calc_size_Rdir($dir);
-      $filesizename = array(" Bytes", " KB", " MB", " GB", " TB", " PB", " EB", " ZB", " YB");
-       return round($size/pow(1024, ($i = floor(log($size, 1024)))), 2) . $filesizename[$i];
-    }
 
-    function calc_size_Rdir($dir_start)
-    {
-     $size = 0;
-      $open = opendir($dir_start);
-       while($file = readdir($open))
-    {
+     <!-- Affiche la taille du dossier -->
 
-    if($file != '.' && $file != '..')
-    {
-     if(is_dir($dir_start .'/'.$file))
-    {
-   $new_dir = $dir_start .'/'.$file;
-    $size = $size + calc_size_Rdir($new_dir);
-    }
-    else
-    {
-    $size = $size + filesize($dir_start .'/'.$file);
-     }
-    }
-   }
+     <?php
 
-    return $size;
-    }
-   ?>
-   <?php
+       function taille_dossier($rep){
+           $racine=opendir($rep);
+           $taille=0;
+           while($dossier=readdir($racine)){
+             if(!in_array($dossier, array("..", "."))){
+               if(is_dir("$rep/$dossier")){
+                 $taille+=taille_dossier("$rep/$dossier");
+               }else{
+                 $taille+=filesize("$rep/$dossier");
+               }
+             }
+           }
+           closedir($racine);
+           return $taille;
+         }
+       function taille_dossier1($rep){
+           $racine=opendir($rep);
+           $taille=0;
+           $dossier=readdir($racine);
+           $dossier=readdir($racine);
+           while($dossier=readdir($racine)){
 
-    $size = calc_size('.');
-    echo $size;
-   
-   ?>
+              if(is_dir("$rep/$dossier")){
+                 $taille+=taille_dossier("$rep/$dossier");
+               }else{
+                 $taille+=filesize("$rep/$dossier");
+               }
+
+           }
+           closedir($racine);
+           return $taille;
+         }
+       echo "Taille du dossier : ";
+       echo taille_dossier("/home/gs1549/domains/shoot-n-pix.1s.fr/public_html")/(1024*1024)."";
+       echo "MB";
+
+     ?>
+
+
+
+
    </footer>
 
  </body>
