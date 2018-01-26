@@ -14,8 +14,8 @@
 
  
   <nav class="navbar navbar-dark bg-primary">
-    <form class="form-inline">
-      <input class="form-control mr-sm-3" type="url" value="http://">
+    <form class="form-inline col-12">
+      <input class="form-control col-10 mr-sm-3" type="url">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Retour</button>
     </form>
   </nav>
