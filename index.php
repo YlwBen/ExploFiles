@@ -63,8 +63,17 @@
            return $taille;
          }
        echo "Taille du dossier : ";
-       echo taille_dossier("/home/gs1549/domains/shoot-n-pix.1s.fr/public_html")/(1024*1024)."";
-       echo "MB";
+       echo taille_dossier("/home/johan")/(1024*1024)."";
+       echo "MB <br />";
+
+
+      //affiche la date et l'heure de la dernière mise a jour du fichier index.php (pour l'expemple)
+
+      $filename = 'index.php';
+      if (file_exists($filename)) {
+          echo "$filename a été modifié le : " . date ("F d Y H:i:s.", filemtime($filename));
+      }
+
 
      ?>
 
