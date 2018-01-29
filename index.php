@@ -3,7 +3,7 @@
 
  <head>
    <script type="text/javascript" src="Librairie/jquery.js"></script>
-   <script type="text/javascript" src="script.js"></script>
+   <script type="text/javascript" src="ajax.js"></script>
    <script rel="stylesheet" href="bouton.css"></script>
    <link rel="stylesheet" href="Librairie/bootstrap/css/bootstrap.css">
    <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
  <body>
 
-   <h1></h1>
+
    <nav class="navbar navbar-dark bg-primary">
      <form class="form-inline col-12">
        <input class="form-control col-7 mr-sm-3" type="url">
@@ -21,27 +21,8 @@
      </form>
     </nav>
 
+ <div id="arbo"></div>
 
-<?php
-$chemin = '/home/yellow';
-$repertoire = opendir($chemin);
-$nomdefichier = readdir($repertoire);
-
-while($nomdefichier != false)
-{
-  if (is_dir($chemin.'/'.$nomdefichier))
-  {
-    echo '<img style="width="20" height="20"" src="img/file.png"/>';
-  }else{
-    echo '<img style="width="20" height="20"" src="img/file2.png"/>';
-  }
-
-  echo $nomdefichier.'</br>';
-  $nomdefichier = readdir($repertoire);
-}
-
-
- ?>
 
  <footer>
 
