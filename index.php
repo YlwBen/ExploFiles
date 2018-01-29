@@ -21,6 +21,28 @@
      </form>
     </nav>
 
+
+<?php
+$chemin = '/home/yellow';
+$repertoire = opendir($chemin);
+$nomdefichier = readdir($repertoire);
+
+while($nomdefichier != false)
+{
+  if (is_dir($chemin.'/'.$nomdefichier))
+  {
+    echo '<img style="width="20" height="20"" src="img/file.png"/>';
+  }else{
+    echo '<img style="width="20" height="20"" src="img/file2.png"/>';
+  }
+
+  echo $nomdefichier.'</br>';
+  $nomdefichier = readdir($repertoire);
+}
+
+
+ ?>
+
  <footer>
 
      <!-- Affiche la taille du dossier -->
