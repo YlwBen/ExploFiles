@@ -18,52 +18,60 @@
        <span class="glyphicon glyphicon-arrow-left"></span> Retour</a>
      </form>
     </nav>
-
- <footer>
+    <footer>
 
      <!-- Affiche la taille du dossier -->
 
      <?php
 
-       function taille_dossier($rep){
-           $racine=opendir($rep);
-           $taille=0;
-           while($dossier=readdir($racine)){
-             if(!in_array($dossier, array("..", "."))){
-               if(is_dir("$rep/$dossier")){
-                 $taille+=taille_dossier("$rep/$dossier");
-               }else{
-                 $taille+=filesize("$rep/$dossier");
-               }
+     
+     function taille_dossier($rep){
+         $racine=@opendir($rep);
+         $taille=0;
+         while($dossier=@readdir($racine)){
+           if(!in_array($dossier, array("..", "."))){
+             if(is_dir("$rep/$dossier")){
+               $taille+=taille_dossier("$rep/$dossier");
+             }else{
+               $taille+=@filesize("$rep/$dossier");
              }
            }
-           closedir($racine);
-           return $taille;
          }
-       function taille_dossier1($rep){
-           $racine=opendir($rep);
-           $taille=0;
-           $dossier=readdir($racine);
-           $dossier=readdir($racine);
-           while($dossier=readdir($racine)){
+         @closedir($racine);
+         return $taille;
+       }
+     function taille_dossier1($rep){
+         $racine=@opendir($rep);
+         $taille=0;
+         $dossier=@readdir($racine);
+         $dossier=@readdir($racine);
+         while($dossier=@readdir($racine)){
 
-              if(is_dir("$rep/$dossier")){
-                 $taille+=taille_dossier("$rep/$dossier");
-               }else{
-                 $taille+=filesize("$rep/$dossier");
-               }
+            if(is_dir("$rep/$dossier")){
+               $taille+=taille_dossier("$rep/$dossier");
+             }else{
+               $taille+=@filesize("$rep/$dossier");
+             }
 
-           }
-           closedir($racine);
-           return $taille;
          }
-       echo "Taille du dossier : ";
-       echo taille_dossier("/home/gs1549/domains/shoot-n-pix.1s.fr/public_html")/(1024*1024)."";
-       echo "MB";
+         @closedir($racine);
+         return $taille;
+       }
+     echo "Taille du dossier : ";
+     echo taille_dossier("/home/red/Documents/www/img")/(1024*1024)."";
+     echo "MB <br />";
 
-     ?>
+    ?>
 
 
+    <?php
+    // Affichera : somefile.txt a été modifié le : December 29 2002 22:16:23.
+
+    $filename = 'index.php';
+    if (file_exists($filename)) {
+        echo "$filename a été modifié le : " . date ("F d Y H:i:s.", filemtime($filename));
+    }
+    ?>
 
 
    </footer>
