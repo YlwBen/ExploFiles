@@ -1,20 +1,23 @@
+function loadDir(rep) {
+  $("#chemin").val(rep);
+  $.ajax({ url: 'fonction1.php',
+           data: {action: rep},
+           type: 'post',
+           success: function(output) {
+                        $("#arbo").html(output);
+                        var chemin = $("#chemin").val();
+                        $('.clique').click(function(){
+                          var foldername = $(this).text();
+                          console.log(foldername);
+                        loadDir(rep + '/' + foldername);
+
+
+                        });
+                    }
+  });
+}
+
 $(document).ready(function(){
 
-
-  function refresh() {
-    $.ajax({ url: 'fonction1.php',
-             data: {action: '/home/johan'},
-             type: 'post',
-             success: function(output) {
-                          $("#arbo").html(output);
-                          $('img').click(function(){
-                            console.log('click');
-
-                          });
-                      }
-    });
-  }
-  //setInterval(function(){refresh();}, 1000);
-  refresh();
-
+loadDir('/home/yellow');
 });
