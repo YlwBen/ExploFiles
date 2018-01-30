@@ -26,48 +26,7 @@
 
  <footer>
 
-     <!-- Affiche la taille du dossier -->
-
-     <?php
-
-       function taille_dossier($rep){
-           $racine=opendir($rep);
-           $taille=0;
-           while($dossier=readdir($racine)){
-             if(!in_array($dossier, array("..", "."))){
-               if(is_dir("$rep/$dossier")){
-                 $taille+=taille_dossier("$rep/$dossier");
-               }else{
-                 $taille+=filesize("$rep/$dossier");
-               }
-             }
-           }
-           closedir($racine);
-           return $taille;
-         }
-       function taille_dossier1($rep){
-           $racine=opendir($rep);
-           $taille=0;
-           $dossier=readdir($racine);
-           $dossier=readdir($racine);
-           while($dossier=readdir($racine)){
-
-              if(is_dir("$rep/$dossier")){
-                 $taille+=taille_dossier("$rep/$dossier");
-               }else{
-                 $taille+=filesize("$rep/$dossier");
-               }
-
-           }
-           closedir($racine);
-           return $taille;
-         }
-       echo "Taille du dossier : ";
-       echo taille_dossier("/home/gs1549/domains/shoot-n-pix.1s.fr/public_html")/(1024*1024)."";
-       echo "MB";
-
-     ?>
-
+    
 
 
 

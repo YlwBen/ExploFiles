@@ -7,10 +7,14 @@ $(document).ready(function(){
              type: 'post',
              success: function(output) {
                           $("#arbo").html(output);
+                          $('img').click(function(){
+                            console.log('click');
+
+                          });
                       }
     });
   }
-
-  setInterval(function(){refresh();}, 1000);
+  //setInterval(function(){refresh();}, 1000);
+  refresh();
 
 });
