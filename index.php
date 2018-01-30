@@ -17,7 +17,7 @@
      <form class="form-inline col-12">
        <input class="form-control col-7 mr-sm-3" id="chemin" type="url">
        <a href="#" class="btn btn-primary btn-primary col-4">
-       <span class="glyphicon glyphicon-arrow-left"></span> Retour</a>
+       <span class="glyphicon glyphicon-arrow-left" id="back"></span> Retour</a>
      </form>
     </nav>
 
