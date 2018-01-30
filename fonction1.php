@@ -7,29 +7,22 @@ function explo($chemin){
 
   while($nomdefichier != false)
   {
+    echo '<div class="clique">';
     if (is_dir($chemin.'/'.$nomdefichier))
     {
       echo '<img style="width="20" height="20"" src="img/file.png"/>';
     }else{
       echo '<img style="width="20" height="20"" src="img/file2.png"/>';
     }
-
     echo $nomdefichier.'</br>';
     $nomdefichier = readdir($repertoire);
+    echo '</div>';
   }
 }
   if (isset($_POST['action'])&&!empty($_POST['action'])) {
     $action=$_POST['action'];
     explo($action);
-
-
   }
-  if(isset($_GET['dir'])&&!empty($_GET['dir'])&&file_exists($_GET['dir'])&&is_dir($_GET['dir']))/*Verifie la variable et bien un repertoire*/
-  {
-  $rep=$_GET['dir'];
-  $rep=str_replace("//","/",$rep);
-  $handle = @opendir($rep);/* Ouvre le repertoire */
-}
 
 
 ?>
@@ -74,5 +67,8 @@ function explo($chemin){
   echo "Taille du dossier : ";
   echo taille_dossier($taille)/(1024*1024)."";
   echo "MB";
+
+
+// <!-- Function Ben -->
 
 ?>

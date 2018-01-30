@@ -3,12 +3,14 @@ $(document).ready(function(){
 
   function refresh() {
     $.ajax({ url: 'fonction1.php',
-             data: {action: '/home/johan'},
+             data: {action: '/home/yellow'},
              type: 'post',
              success: function(output) {
                           $("#arbo").html(output);
-                          $('img').click(function(){
-                            console.log('click');
+                          $('.clique').click(function(){
+                            console.log();
+                          $(this).parent().parent().remove();
+
 
                           });
                       }
