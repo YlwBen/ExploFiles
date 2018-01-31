@@ -7,7 +7,7 @@ function explo($chemin){
 
   while($nomdefichier != false)
   {
-    echo '<div class="clique">';
+    echo '<div class="clique container col-8 offset-2 text-center">';
     if (is_dir($chemin.'/'.$nomdefichier))
     {
       echo '<img style="width="20" height="20"" src="img/file.png"/>';
@@ -16,6 +16,7 @@ function explo($chemin){
     }
     echo $nomdefichier.'</br>';
     $nomdefichier = readdir($repertoire);
+
     echo '</div>';
   }
 }
@@ -24,51 +25,48 @@ function explo($chemin){
     explo($action);
   }
 
+ 
 
 ?>
-
 
 <!-- Affiche la taille du dossier -->
 
 <?php
 
-  function taille_dossier($rep){
-      $racine=opendir($rep);
-      $taille=0;
-      while($dossier=readdir($racine)){
-        if(!in_array($dossier, array("..", "."))){
-          if(is_dir("$rep/$dossier")){
-            $taille+=taille_dossier("$rep/$dossier");
-          }else{
-            $taille+=filesize("$rep/$dossier");
-          }
-        }
-      }
-      closedir($racine);
-      return $taille;
-    }
-  function taille_dossier1($rep){
-      $racine=opendir($rep);
-      $taille=0;
-      $dossier=readdir($racine);
-      $dossier=readdir($racine);
-      while($dossier=readdir($racine)){
-
-         if(is_dir("$rep/$dossier")){
-            $taille+=taille_dossier("$rep/$dossier");
-          }else{
-            $taille+=filesize("$rep/$dossier");
-          }
-
-      }
-      closedir($racine);
-      return $taille;
-    }
-  echo "Taille du dossier : ";
-  echo taille_dossier($taille)/(1024*1024)."";
-  echo "MB";
-
-
-// <!-- Function Ben -->
+  // function taille_dossier($rep){
+  //     $racine=opendir($rep);
+  //     $taille=0;
+  //     while($dossier=readdir($racine)){
+  //       if(!in_array($dossier, array("..", "."))){
+  //         if(is_dir("$rep/$dossier")){
+  //           $taille+=taille_dossier("$rep/$dossier");
+  //         }else{
+  //           $taille+=filesize("$rep/$dossier");
+  //         }
+  //       }
+  //     }
+  //     closedir($racine);
+  //     return $taille;
+  //   }
+  // function taille_dossier1($rep){
+  //     $racine=opendir($rep);
+  //     $taille=0;
+  //     $dossier=readdir($racine);
+  //     $dossier=readdir($racine);
+  //     while($dossier=readdir($racine)){
+  //
+  //        if(is_dir("$rep/$dossier")){
+  //           $taille+=taille_dossier("$rep/$dossier");
+  //         }else{
+  //           $taille+=filesize("$rep/$dossier");
+  //         }
+  //
+  //     }
+  //     closedir($racine);
+  //     return $taille;
+  //   }
+  // echo "Taille du dossier : ";
+  // echo taille_dossier($taille)/(1024*1024)."";
+  // echo "MB";
 
 ?>
