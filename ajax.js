@@ -5,6 +5,7 @@ function dirname(path) {
 function clickup(){
   var rep = $("#chemin").val();
   var repup = dirname(rep);
+  $("#chemin").val(repup);
   $.ajax({ url: 'fonction1.php',
            data: {action: rep + '/..'},
            type: 'post',
@@ -21,7 +22,7 @@ function clickup(){
                     }
   });
 }
-
+// Tout ce qui se trouve au dessus n'est qu'un test.
 
 //Arbo
 function loadDir(rep) {
