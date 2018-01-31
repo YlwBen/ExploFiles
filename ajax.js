@@ -14,6 +14,7 @@ function clickup(){
                         var chemin = $("#chemin").val();
                         $('.clique').click(function(){
                           var foldername = $(this).text();
+
                           console.log(foldername);
                         loadDir(rep + '/' + foldername);
 
@@ -47,6 +48,6 @@ function loadDir(rep) {
 $(document).ready(function(){
 $("#back").click(clickup);
 
-loadDir('/home/');
+loadDir('/home');
 
 });
