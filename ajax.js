@@ -7,7 +7,7 @@ function clickup(){
   var repup = dirname(rep);
   $("#chemin").val(repup);
   $.ajax({ url: 'fonction1.php',
-           data: {action: rep + '/..'},
+           data: {action: repup},
            type: 'post',
            success: function(output) {
                         $("#arbo").html(output);
@@ -16,7 +16,7 @@ function clickup(){
                           var foldername = $(this).text();
 
                           console.log(foldername);
-                        loadDir(rep + '/' + foldername);
+                        loadDir(repup + '/' + foldername);
 
 
                         });
@@ -33,7 +33,7 @@ function loadDir(rep) {
            type: 'post',
            success: function(output) {
                         $("#arbo").html(output);
-                        var chemin = $("#chemin").val();
+                        //var chemin = $("#chemin").val();
                         $('.clique').click(function(){
                           var foldername = $(this).text();
                           console.log(foldername);

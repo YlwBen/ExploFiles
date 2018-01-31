@@ -5,7 +5,7 @@ function explo($chemin){
   $repertoire = opendir($chemin);
   $nomdefichier = readdir($repertoire);
 
-  while($nomdefichier != false) {
+  while($nomdefichier != false) { 
 
     if($nomdefichier !='.' &&  $nomdefichier !='..'){
       echo '<div class="clique">';
