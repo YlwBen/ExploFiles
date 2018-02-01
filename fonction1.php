@@ -5,7 +5,7 @@ function explo($chemin){
   $repertoire = opendir($chemin);
   $nomdefichier = readdir($repertoire);
 
-  while($nomdefichier != false) { 
+  while($nomdefichier != false) {
 
     if($nomdefichier !='.' &&  $nomdefichier !='..'){
       echo '<div class="clique col-8 offset-2">';
@@ -31,7 +31,14 @@ if (isset($_POST['action'])&&!empty($_POST['action'])) {
 
 ?>
 
-<!-- Affiche la taille du dossier -->
+<!-- Affiche l'heure et date du serveur -->
+<?php
+$_POST;
+$date = date("d-m-Y");
+$heure=date('H:i');
+echo " Nous sommes le $date et il est $heure";
+
+ ?>
 
 <?php
 

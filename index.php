@@ -14,11 +14,11 @@
 
 
    <nav class="navbar navbar-dark bg-secondary">
-     <form class="form-inline col-12">
-       <input class="form-control col-7 mr-sm-3" id="chemin" type="text">
-       <a href="#" id="back" class="btn btn-primary btn-primary col-4">
-       <span class="glyphicon glyphicon-arrow-left" ></span> Retour</a>
-     </form>
+        <div class="form-inline col-12">
+            <input class="form-control col-7 mr-sm-3" id="chemin" type="text">
+            <a href="#" id="back" class="btn btn-primary btn-primary col-4">
+            <span class="glyphicon glyphicon-arrow-left" ></span> Retour</a>
+        </div>
     </nav>
 
 	<div class="container text-truncate">
@@ -32,7 +32,13 @@
  </body>
 
   <footer class="container fixed-bottom col-12" >
- 	<div id="date">
+ 	<div id="date" >
+        <p>
+
+
+
+
+        </p>
 
  	</div>
  </footer>

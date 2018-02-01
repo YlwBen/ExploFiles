@@ -46,8 +46,27 @@ function loadDir(rep) {
 }
 
 $(document).ready(function(){
-$("#back").click(clickup);
+ $("#back").click(clickup);
+ loadDir('/home');
 
-loadDir('/home');
+ $('#chemin').change(function() {
+   loadDir($("#chemin").val());
 
+ });
 });
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("date").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("POST", "fonction1.php", true);
+
+  xhttp.send();
+
+}
+
+    loadDoc();
