@@ -1,0 +1,42 @@
+#chemin {
+  color: #007BFF;
+  font-weight: 600;
+  font-family: cursive; }
+
+#back {
+  color: white;
+  font-weight: 600;
+  border: 1px solid white;
+  font-family: cursive; }
+
+@media screen and (max-width: 640px) {
+  div.clique {
+    width: 220px; } }
+body {
+  margin: 0;
+  display: table;
+  height: 100%;
+  width: 100%;
+  color: #007BFF;
+  font-weight: 600;
+  font-family: cursive;
+  background-color: #007BFF; }
+
+.container {
+  height: auto; }
+
+.clique {
+  width: 400px;
+  height: 23px;
+  border: 1px solid black;
+  margin-top: 3px;
+  border-radius: 20px;
+  background-color: white;
+  margin-left: 30px; }
+
+footer {
+  display: table-row;
+  height: 1px;
+  background-color: #919191; }
+
+/*# sourceMappingURL=style.css.map */

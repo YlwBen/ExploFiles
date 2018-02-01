@@ -8,7 +8,7 @@ function explo($chemin){
   while($nomdefichier != false) { 
 
     if($nomdefichier !='.' &&  $nomdefichier !='..'){
-      echo '<div class="clique">';
+      echo '<div class="clique col-8 offset-2">';
         if (is_dir($chemin.'/'.$nomdefichier))
         {
             echo '<img style="width="20" height="20"" src="img/file.png"/>';
